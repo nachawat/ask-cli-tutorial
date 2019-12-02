@@ -40,6 +40,12 @@ To perform this operation, you will edit the file `models/en-US.json` and add an
 # 2. Update your skill's code
 
 
+#### Create Intent Handler
+
+To handle JSON Requests sent to our skill backend for newly createed intent `MyNameIsIntent`, we will add a new Handler in our Lambda code and reference it into the Request Handlers chain.
+
+To perform this operation, you will edit the file `lambda/index.js` and add the following intent handler:
+
 ```javascript
 const MyNameIsIntentHandler = { 
     canHandle(handlerInput) {
@@ -48,7 +54,7 @@ const MyNameIsIntentHandler = {
     }, 
     handle(handlerInput) {
         const firstname = Alexa.getSlotValue(handlerInput.requestEnvelope, "first_name"); 
-        const speechText = `Welcome ${firstname}, it is my pleasure to meet you!`;
+        const speechText = `Hello ${firstname}, it is my pleasure to meet you for ALX 314!`;
         return handlerInput.responseBuilder
             .speak(speechText)
             .getResponse();
@@ -56,6 +62,37 @@ const MyNameIsIntentHandler = {
 };
 ```
 
+#### Attach Intent Handler
+
+Once the handler is created, we must attach it to the request handler chain from our `SkillBuilders` instance. To perform this operation, you will edit the file `lambda/index.js` and locate method: `.addRequestHandlers()` for the `Alexa.SkillBuilders.custom()` object in order to add the newly created handler
+
+```
+Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        LaunchRequestHandler,
+        MyNameIsIntentHandler,
+        ...
+    )
+```
+
+#### Update Welcome prompt
+
+To let the users provide us their name, while invoking the skill, in the welcome prompt message, we will ask them for their first name.
+
+To perform this operation, you will edit the file `lambda/index.js` and locate method `LaunchRequest.handle(handlerInput)` to update the output speech prompt:
+
+```javascript
+file: lambda/index.js
+method: LaunchRequest.handle(handlerInput)
+
+BEFORE:
+
+const speakOutput = 'Welcome, you can say Hello or Help. Which would you like to try?';
+
+AFTER:
+
+const speakOutput = 'Welcome, what is your first name?';
+```
 
 # 3. Skill Modification: What happened ?
 
@@ -72,9 +109,7 @@ For this change, you made the following operations:
 
 # 4. Deploy your Skill
 
-### Deploy
-
-#### Command
+To deploy our local changes, we will first commit our changes to the local repository then make a deployment using the ASK CLI:
 
 ```
 git add .
@@ -82,17 +117,19 @@ git commit -m “add Name Intent”
 ask deploy
 ```
 
-#### What happened ?
+> **Note**: The `deploy` command *only* starts the AWS Lambda function deployment: it doesn't wait for the deployment to end before returning. Please ensure your AWS Lambda function (code) is correctly deployed before testing it.
 
 # 4. Test your Skill
 
-#### Command
+Once, your deployment is done, you can test the new version of your skill by using the dialog mode from the ASK CLI
 
 ```
 ask dialog --locale en-US
+  User  >  open hosted hello world
+  Alexa >  Welcome, what is your first name?
+  User  >  Benoit
+  Alexa >  Hello Benoit, it is my pleasure to meet you for ALX 314!
 ```
-
-#### What happened ?
 
 ---
 
