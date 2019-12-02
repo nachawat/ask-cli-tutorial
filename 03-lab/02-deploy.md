@@ -37,6 +37,8 @@ Lambda function(s) created:
 Your skill is now deployed and enabled in the development stage. Try simulate your Alexa skill skill using "ask dialog" command.
 ```
 
+> **Note**: The `npm install` command is run before *actually* deploying the AWS Lambda code by calling the following hook file: `hooks/pre_deploy_hook.sh`.
+
 > **Note**: Once deployed, the skill ID is available from the hidden file `.ask/config` :
 
 ```json
