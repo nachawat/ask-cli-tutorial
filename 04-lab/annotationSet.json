@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "inputs": {
+        "utterance": "Benoit is my first name"
+      },
+      "expected": [
+        {
+          "intent": {
+            "name": "MyNameIsIntent",
+            "slots": {
+              "firstname": {
+                "value": "Benoit"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "utterance": "hello everyone"
+      },
+      "expected": [
+        {
+          "intent": {
+            "name": "HelloWorldIntent",
+            "slots": {}
+          }
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "utterance": "you can call me Benoit"
+      },
+      "expected": [
+        {
+          "intent": {
+            "name": "MyNameIsIntent",
+            "slots": {
+              "firstname": {
+                "value": "Benoit"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "inputs": {
+        "utterance": "my name is Benoit"
+      },
+      "expected": [
+        {
+          "intent": {
+            "name": "MyNameIsIntent",
+            "slots": {
+              "firstname": {
+                "value": "Benoit"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
