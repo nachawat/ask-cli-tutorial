@@ -1,6 +1,6 @@
 # Lab 1: ASK CLI Setup Guide
 
-## [Amazon Developer Account](./01-create.md) | [Tools](./02-edit.md) | [ASK CLI](./03-deploy.md) | [AWS Account](./04-test.md)
+## [Amazon Developer Account](./01-amzn-developer-account.md) | [Tools](./02-tools.md) | [ASK CLI](./03-ask-cli.md) | [AWS Account](./04-aws-account.md)
 
 ## Alexa Skill Building - Prerequisites
 
