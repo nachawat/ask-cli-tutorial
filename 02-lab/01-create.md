@@ -56,7 +56,7 @@ All the skill artefacts has been cloned on your computer into a Skill project fo
 #### Command
 
 ```
-cd MyFirstSkillWithCLI
+cd MyFirstHostedSkillWithCLI
 ls -a
 ```
 
