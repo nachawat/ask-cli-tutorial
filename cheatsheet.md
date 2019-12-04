@@ -3,6 +3,15 @@
 Summary of the main operations to **Create-Deploy-Test** your skill using the [ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html).
 
 ```
+
+##################
+# INITIALIZATION
+##################
+
+## Configure the ASK CLI to your Amazon Developer Account
+### Can also configure ASK CLI to use your AWS Account
+ask init
+
 ############
 # CREATION
 ############
