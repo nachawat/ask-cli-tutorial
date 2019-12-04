@@ -1,4 +1,4 @@
-# ASK CLI Cheatsheet for Alexa-Hosted
+# ASK CLI Cheatsheet
 
 Summary of the main operations to **Create-Deploy-Test** your skill using the [ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html).
 
@@ -64,23 +64,23 @@ ask api get-conflicts --skill-id <SKILL_ID> --locale en-US
 ask api nlu-profile --utterance "hello there" --skill-id <SKILL_ID> --locale en-US 
 
 ## NLU Evaluation Tool: regression tests
-### Create an AnnotationSet
+### Step 1: Create an AnnotationSet
 ### Returns the AnnotationSet ID
 ask api create-nlu-annotation-set --skill-id <SKILL_ID> --locale en-US --annotation-set-name AnnotationDemoBatch
 
-### Add test cases to the AnnotationSet
+### Step 2: Add test cases to the AnnotationSet
 ask api update-nlu-annotation-set-annotations --skill-id <SKILL_ID> --annotation-id <annotation-id> --annotations-file 
 annotationSetTestCases.json
  --annotations-format application/json
 
-### Trigger a new evaluation
-### Returns the Evaluation ID
-### An evaluation in an async operation
+### Step 3: Trigger a new evaluation
+#### Returns the Evaluation ID
+#### An evaluation in an async operation
 ask api evaluate-nlu --skill-id <SKILL_ID> --locale en-US --annotation-id <annotation-id>
 
-### Get Evalutation Status
+### Step 4: Get Evalutation Status
 ask api get-nlu-evaluation --skill-id <SKILL_ID> --evaluation-id <evaluation-id>
 
-### Get Evaluation Results
+### Step 5: Get Evaluation Results
 ask api get-nlu-evaluation-results --skill-id <SKILL_ID> --evaluation-id <evaluation-id>
 ```
