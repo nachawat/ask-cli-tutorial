@@ -41,6 +41,8 @@ Here are a few definitions to get familiar with when building Skills:
 1. [Lab 4: Advanced Testing with ASK CLI](./04-lab/README.md)
 1. [Lab 5: ASK CLI Beta (v2)](./05-lab/README.md)
 
+Or go directly to the [CheatSheet](./cheatsheet.md)
+
 # Additional Resources
 
 * Get a better understanding about Skill Building Vocabulary: [Glossary](https://developer.amazon.com/docs/alexa-design/glossary.html)
